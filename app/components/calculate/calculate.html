@@ -1,0 +1,250 @@
+<div class="center banner"  >
+
+</div>
+
+<div style="background-color: lightgrey" ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+    <!--<p  class="text-uppercase lead" 
+        align="center">
+        {{ vm.header }}
+    </p>    -->
+    
+
+    <form  style="max-width: 90% !important" class="form-signin"
+          align="left"
+          ng-submit="vm.login(user)"
+          name="formQuote" novalidate> 
+      
+       <div >
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        name="make"
+                        ng-model="vm.make" 
+                        required="">
+                <label class="md-label">Make</label>
+                <span ng-show="formQuote.model.$error.required && formQuote.model.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.make.$error.required && formQuote.make.$touched">
+                        (Required!)</span>
+                
+            </div>
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        name="model"
+                        ng-model="vm.model" 
+                        required="">
+                <label >Model</label>
+                 <span ng-show="formQuote.make.$error.required && formQuote.make.$touched">&nbsp;</span>
+                 <span class="error ft11" ng-show="formQuote.model.$error.required && formQuote.model.$touched">
+                        (Required!)</span>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        name="type"
+                        ng-model="vm.type" 
+                        required="">
+                <label >Type</label>
+                <span ng-show="formQuote.year.$error.required && formQuote.year.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.type.$error.required && formQuote.type.$touched">
+                        (Required!)</span>
+                
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="number"
+                        ng-model="vm.year" 
+                        required=""
+                        name="year"
+                        min=1901
+                        max=2100>
+                <label >Year   </label>
+                <span ng-show="formQuote.type.$error.required && formQuote.type.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.year.$error.required && formQuote.year.$touched">
+                        (Required!)</span>
+                <span class="error ft11" ng-show="formQuote.year.$touched && formQuote.year.$invalid">
+                        (Not valid year!)</span>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        name="fair_market_value"
+                        ng-model="vm.fair_market_value" 
+                     
+                        required=""
+
+                        thousand-number>
+                <label >Fair Market Value &#8369;</label>
+                <span ng-show="formQuote.rate.$error.required && formQuote.rate.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.fair_market_value.$error.required && formQuote.fair_market_value.$touched">
+                        (Required!)</span>
+                <span class="error ft11" ng-show="formQuote.fair_market_value.$touched && formQuote.fair_market_value.$invalid">
+                        (Not valid value!)</span>
+            </div>
+
+            
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="number"
+                        name="rate"
+                        ng-model="vm.rate" 
+                        required=""
+                        ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" 
+                        step="0.0000001"
+                        >
+                <label >Rate(%)</label>
+                <span ng-show="formQuote.fair_market_value.$error.required && formQuote.fair_market_value.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.rate.$error.required && formQuote.rate.$touched">
+                        (Required!)</span>
+
+                <span class="error ft11" ng-show="formQuote.rate.$touched && formQuote.rate.$invalid">
+                        (Not valid value!)</span>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="checkbox"
+                        name="act_of_god_included"
+                        ng-model="vm.acts_of_god_included" 
+                        >
+                 <label> Acts of Nature included <label> 
+
+                <!--<input  class="form-control" 
+                        type="text"
+                        ng-model="vm.rate" 
+                        required="">
+                <label >Rate(%)</label> -->
+            </div>
+   
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <select  name="classification" required="required" class="form-control"  ng-model="vm.classification">
+                    <option ng-selected="true" value=""></option>
+                    <option value="PC" >PC (Private Car)</option>
+                    <option value="M">Motorcycle</option>
+                </select>
+                <label >Classification</label>
+
+                <span ng-show="formQuote.classification.$error.required && formQuote.classification.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.classification.$error.required && formQuote.classification.$touched">
+                        (Required!)</span>
+
+                <span class="error ft11" ng-show="formQuote.classification.$touched && formQuote.classification.$invalid">
+                        (Not valid value!)</span>
+               
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <select name="bodily_injury_property_damage" required="required" class="form-control"  ng-model="vm.bodily_injury_property_damage">
+                    <option ng-selected="true" value=""></option>
+                    <option value="50000">&#8369; 50,000</option>
+                    <option value="75000">&#8369; 70,000</option>
+                    <option value="100000">&#8369; 100,000</option>
+                     <option value="100000">&#8369; 150,000</option>
+                    <option value="200000">&#8369; 200,000</option>
+                     <option value="250000">&#8369; 250,000</option>
+                    <option value="300000">&#8369; 300,000</option>
+                    <option value="400000">&#8369; 400,000</option>
+                    <option value="500000">&#8369; 500,000</option>
+                    <option value="750000">&#8369; 750,000</option>
+                    <option value="1000000">&#8369; 1,000,000</option>
+                </select>
+                <label >Bodily Injury/Property Damage</label>
+
+
+                <span ng-show="formQuote.insurance_company.$error.required && formQuote.insurance_company.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.bodily_injury_property_damage.$error.required && formQuote.bodily_injury_property_damage.$touched">
+                        (Required!)</span>
+
+            </div>
+
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <select  name="insurance_company" required="required" class="form-control"  ng-model="vm.insurance_company">
+                    <option ng-selected="true" value=""></option>
+                    <option value="Charter Ping An (formerly Philippine Charter Ins. Corp.)">Charter Ping An (formerly Philippine Charter Ins. Corp.)</option>
+                    <option value="Standard Insurance Company, Inc.">Standard Insurance Company, Inc.</option>
+                    <option value="FPG Insurance">FPG Insurance</option>
+                    <option value="PNB General Insurers Company, Inc.">PNB General Insurers Company, Inc.</option>
+                    <option value="QBE Seaboard Insurance Philippines Inc.">QBE Seaboard Insurance Philippines Inc.</option>
+                    <option value="Commonwealth Insurance Company">Commonwealth Insurance Company</option>
+                    
+                </select>
+                <label >Insurance Company</label>
+
+                <span ng-show="formQuote.bodily_injury_property_damage.$error.required && formQuote.bodily_injury_property_damage.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.insurance_company.$error.required && formQuote.insurance_company.$touched">
+                        (Required!)</span>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input name="name" class="form-control" 
+                        type="text"
+                        ng-model="vm.name" 
+                        required=""
+                        ng-pattern="/^[a-zA-Z\s]*$/"
+                        ng-minlength="5"
+                        >
+                <label class="md-label">Name</label>
+                <span ng-show="formQuote.email.$error.required && formQuote.email.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.name.$error.required && formQuote.name.$touched">
+                        (Required!)</span>
+                 <span class="error ft11" ng-show="formQuote.name.$touched && formQuote.name.$invalid">
+                        (Not valid value!)</span>
+            </div>
+
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input name="email"  class="form-control" 
+                        type="email"
+                        ng-model="vm.email" 
+                        
+                        ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" 
+                        required="">
+                <label class="md-label">Email Address</label>
+                <span ng-show="formQuote.name.$error.required && formQuote.name.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.email.$error.required && formQuote.email.$touched">
+                        (Required!)</span>
+                <span class="error ft11" ng-show="formQuote.email.$touched && formQuote.email.$invalid">
+                        (Not valid value!)</span>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input name="cellphone"  class="form-control" 
+                        type="number"
+                        ng-model="vm.cellphone" 
+                        required=""
+                        ng-minlength="6"
+                        >
+                <label class="md-label">Cellphone</label>
+
+              
+                <span class="error ft11" ng-show="formQuote.cellphone.$touched && formQuote.cellphone.$invalid">
+                        (Not valid value!)</span>
+
+            </div>
+
+               <div class="col-md-6" style="margin-bottom:20px;">
+                <input name="landline" class="form-control" 
+                        type="number"
+                        ng-model="vm.landline" 
+                          required=""
+                          ng-minlength="6"
+                         >
+                <label class="md-label">Landline</label>
+
+                <span class="error ft11" ng-show="formQuote.landline.$touched && formQuote.landline.$invalid">
+                        (Not valid value!)</span>
+            </div> 
+
+        </div>
+
+             <button type="submit" ng-disabled="formQuote.$invalid" class="btn btn-primary btn-large" ng-click="vm.submit()">Generate Quote</button>
+    </form>
+
+
+</div>

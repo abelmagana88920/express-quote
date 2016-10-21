@@ -1,0 +1,231 @@
+<div  >
+    <!--<p  class="text-uppercase lead" 
+        align="center">
+        {{ vm.header }}
+    </p>    -->
+
+
+    <div ng-show="vm.display_result">
+        <table style="border: thin solid #aaa" align=center>
+            <tr>
+                <th> COVERAGE </th>
+                <th> AMOUNT </th>
+                <th> PREMIUM </th>
+            </tr>
+            <tr>
+                <th>Own Damage and Theft</th>
+                <td>{{vm.fair_market_value}}</td>
+                <td>{{vm.fair_market_value_rate}}</td>
+            </tr>
+             <tr>
+                <th>VTPL-Bodily Injury</th>
+                <td>{{vm.bodily_injury_property_damage}}</td>
+                <td>{{vm.bodily_injury_premium}}</td>
+
+            </tr>
+
+             <tr>
+                <th>VTPL-Property Damage</th>
+                <td>{{vm.bodily_injury_property_damage}}</td>
+                <td>{{vm.property_damage_premium}}</td>
+
+            </tr>
+
+            <tr>
+                <th>Personal Accident</th>
+                <td>P 250000</td>
+                <td>P 0</td>
+
+            </tr>
+
+            <tr>
+                <th></th>
+                <th>Annual Premiums</th>
+                <td>{{vm.annual_premiums}}</td>
+
+            </tr>
+            <tr>
+                <th></th>
+                <th>Doc Stamps</th>
+                <td>{{vm.docstamps}}</td>
+
+            </tr>
+
+               <tr>
+                <th></th>
+                <th>Evat</th>
+                <td>{{vm.evat}}</td>
+
+            </tr>
+
+               <tr>
+                <th></th>
+                <th>LGT (Local Government Tax)</th>
+                <td>{{vm.lgt}}</td>
+
+            </tr>
+
+             <tr>
+                <th></th>
+                <th>Total Premiums</th>
+                <td>{{vm.total_premiums}}</td>
+
+            </tr>
+
+
+        </table>
+    </div>
+
+
+    <form  style="max-width: 90% !important" class="form-signin"
+          align="left"
+          ng-submit="vm.login(user)"
+          name="formlogin"> 
+      
+       <div >
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        name="make"
+                        ng-model="vm.make" 
+                        required="">
+                <label class="md-label">Make</label>
+            </div>
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        
+                        ng-model="vm.model" 
+                        required="">
+                <label >Model</label>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.type" 
+                        required="">
+                <label >Type</label>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.year" 
+                        required="">
+                <label >Year</label>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.fair_market_value" 
+                        required="">
+                <label >Fair Market Value</label>
+            </div>
+
+            
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.rate" 
+                        required="">
+                <label >Rate(%)</label>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <!--<input  class="checkbox-control" 
+                        type="checkbox"
+                        ng-model="vm.acts_of_god_included" 
+                        required="">
+                 <span> ACTS OF GOD included <span> -->
+
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.rate" 
+                        required="">
+                <label >Rate(%)</label>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <select class="form-control"  ng-model="vm.classification">
+                    
+                    <option value="PC" selected>PC (Private Car)</option>
+                    <option value="CV">Commercial Vehicle</option>
+                </select>
+                     <label >Classification</label>
+               
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <select class="form-control"  ng-model="vm.bodily_injury_property_damage">
+                    <option  ></option>
+                    <option value="50000">P50,000</option>
+                    <option value="75000">P70,000</option>
+                    <option value="100000">P100,000</option>
+                     <option value="100000">P150,000</option>
+                    <option value="200000">P200,000</option>
+                     <option value="250000">P250,000</option>
+                    <option value="300000">P300,000</option>
+                    <option value="400000">P400,000</option>
+                    <option value="500000">P500,000</option>
+                    <option value="750000">P750,000</option>
+                    <option value="1000000">P1,000,000</option>
+                </select>
+                <label >Bodily Injury/Property Damage</label>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <select class="form-control"  ng-model="vm.insurance_company">
+                    <option  ></option>
+                    
+                </select>
+                <label >Insurance Company</label>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.name" 
+                        required="">
+                <label class="md-label">Name</label>
+            </div>
+
+
+            <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.email_address" 
+                        required="">
+                <label class="md-label">Email Address</label>
+            </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.cellphone" 
+                        required="">
+                <label class="md-label">Cellphone</label>
+            </div>
+
+               <div class="col-md-6" style="margin-bottom:20px;">
+                <input  class="form-control" 
+                        type="text"
+                        ng-model="vm.landline" 
+                        required="">
+                <label class="md-label">Landline</label>
+            </div> 
+
+        </div>
+
+
+            <input type="submit" name="submit" value="Generate Quote" ng-click="vm.submit()">
+    </form>
+    <br>
+
+     
+
+
+</div>

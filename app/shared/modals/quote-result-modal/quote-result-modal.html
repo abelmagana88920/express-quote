@@ -1,0 +1,144 @@
+<div class="modal-header bg-primary shufra-blue-primary">
+    <span class="text-uppercase lead">
+        {{ vm.content.header }}
+       <button  type="button" 
+                class="close"
+                ng-click="vm.cancel()" 
+                data-dismiss="modal" 
+                aria-hidden="true">&times;</button>
+    </span>
+
+</div>
+
+<div class="modal-header" style="border-bottom:thin solid #000;">
+    <div class="row">
+        <div class="ft11 col-md-3 col-xs-3" >
+            <span class="text-uppercase"> Send To: </span> 
+        </div>
+         <div class="ft11 col-md-9 col-xs-9" >&nbsp;
+            {{vm.content.vm_main.email}}
+        </div>
+
+        <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase"> Name: </span> 
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+              {{vm.content.vm_main.name}}
+        </div>
+
+        <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase">Reference number: </span>
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+               {{vm.content.vm_main.reference_number}}
+        </div>
+
+         <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase">Car Insurance for: </span>
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+               {{vm.content.vm_main.year}} {{vm.content.vm_main.make}} {{vm.content.vm_main.model}} {{vm.content.vm_main.type}}
+        </div>
+
+        <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase">Insurance Company:  </span>
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+               {{vm.content.vm_main.insurance_company}}
+        </div>
+         
+    </div>
+
+</div>
+ 
+<div class="modal-body clearfix">
+     <div >
+        <table  class="express-table" style="border:none" align=center>
+            <tr >
+                <th class="main-header" style="width:33%"> COVERAGE </th>
+                <th class="main-header" style="width:33%"> AMOUNT </th>
+                <th class="main-header" style="width:33%"> PREMIUM </th>
+            </tr>
+            <tr >
+                <th style="line-height: 1 !important" >Own Damage and Theft  <br>
+                    <span class="ft9" ng-show="vm.content.vm_main.acts_of_god_included">Acts of Nature included</span>
+                </th>
+                <td >&#8369; {{vm.content.vm_main.fair_market_value | number:2 }}</td>
+                <td >&#8369; {{vm.content.vm_main.fair_market_value_rate | number:2 }}</td>
+            </tr>
+             <tr>
+                <th >VTPL-Bodily Injury</th>
+                <td>&#8369; {{vm.content.vm_main.bodily_injury_property_damage | number:2}}</td>
+                <td>&#8369;{{vm.content.vm_main.bodily_injury_premium | number:2}}</td>
+
+            </tr>
+
+             <tr>
+                <th >VTPL-Property Damage</th>
+                <td>&#8369; {{vm.content.vm_main.bodily_injury_property_damage | number:2}}</td>
+                <td>&#8369; {{vm.content.vm_main.property_damage_premium | number:2}}</td>
+
+            </tr>
+
+            <tr>
+                <th >Personal Accident</th>
+                <td>&#8369; {{vm.content.vm_main.personal_accident_amount | number:2}}</td>
+                <td>&#8369; {{vm.content.vm_main.personal_accident_premium | number:2}}</td>
+
+            </tr>
+
+            <tr>
+                <th ></th>
+                <th>Annual Premiums</th>
+                <td><b>&#8369; {{vm.content.vm_main.annual_premiums | number:2}}</b></td>
+
+            </tr>
+            <tr>
+                <th ></th>
+                <th >Doc Stamps</th>
+                <td>&#8369; {{vm.content.vm_main.docstamps | number:2}}</td>
+
+            </tr>
+
+               <tr>
+                <th ></th>
+                <th >Evat</th>
+                <td>&#8369; {{vm.content.vm_main.evat | number:2}}</td>
+
+            </tr>
+
+               <tr>
+                <th ></th>
+                <th >LGT (Local Government Tax)</th>
+                <td>&#8369; {{vm.content.vm_main.lgt | number:2}}</td>
+
+            </tr>
+
+             <tr>
+                <th ></th>
+                <th >Total Premiums</th>
+                <td ><b>&#8369; {{vm.content.vm_main.total_premiums | number:2}}</b></td>
+
+            </tr>
+
+
+        </table>
+    </div>
+
+
+
+
+ 
+
+
+    <div   class="top-margin-sm pull-right" align="center">
+        <button type="button" 
+                class="btn btn-sm btn-cancel" 
+                ng-click="vm.cancel()" > Cancel </button>
+        <button type="button"
+                class="btn btn-sm btn-primary text-capitalize"
+                ng-click="vm.approve()" > {{vm.content.btn_name || 'Email Quote'}} </button>
+    </div>
+</div>
+
+
