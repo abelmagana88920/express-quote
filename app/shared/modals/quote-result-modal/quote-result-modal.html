@@ -136,8 +136,8 @@
                 class="btn btn-sm btn-cancel" 
                 ng-click="vm.cancel()" > Cancel </button>
         <button type="button"
-                class="btn btn-sm btn-primary text-capitalize"
-                ng-click="vm.approve()" > {{vm.content.btn_name || 'Email Quote'}} </button>
+                class="btn btn-sm btn-primary text-capitalize" ng-disabled="vm.content.btn_name=='Sending Quote'"
+                ng-click="vm.approve()" > {{vm.content.btn_name}} </button>
     </div>
 </div>
 
