@@ -10,7 +10,8 @@
             'dataGrid', 'pagination', 'ngMaterial',
             'sticky',
             //'tableSort',
-            'angularUtils.directives.dirPagination'
+            'angularUtils.directives.dirPagination',
+            'ngTagsInput'
             //'hl.sticky'
         ])
         .config(router);

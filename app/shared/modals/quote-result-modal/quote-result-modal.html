@@ -16,7 +16,7 @@
             <span class="text-uppercase"> Send To: </span> 
         </div>
          <div class="ft11 col-md-9 col-xs-9" >&nbsp;
-            {{vm.content.vm_main.email}}
+            {{vm.content.vm_main.email_extract}}
         </div>
 
         <div class="ft11 col-md-3 col-xs-3">
@@ -37,7 +37,7 @@
              <span class="text-uppercase">Car Insurance for: </span>
         </div>
         <div class="ft11 col-md-9 col-xs-9">&nbsp;
-               {{vm.content.vm_main.year}} {{vm.content.vm_main.make}} {{vm.content.vm_main.model}} {{vm.content.vm_main.type}}
+               {{vm.content.vm_main.year}} {{vm.content.vm_main.make}} {{vm.content.vm_main.model}} 
         </div>
 
         <div class="ft11 col-md-3 col-xs-3">
@@ -45,6 +45,13 @@
         </div>
         <div class="ft11 col-md-9 col-xs-9">&nbsp;
                {{vm.content.vm_main.insurance_company}}
+        </div>
+
+        <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase">Memo:  </span>
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+               {{vm.content.vm_main.memo_extract}}
         </div>
          
     </div>
@@ -61,7 +68,7 @@
             </tr>
             <tr >
                 <th style="line-height: 1 !important" >Own Damage and Theft  <br>
-                    <span class="ft9" ng-show="vm.content.vm_main.acts_of_god_included">Acts of Nature included</span>
+                    <span class="ft9" ng-show="vm.content.vm_main.acts_of_god_included">ACTS OF GOD included</span>
                 </th>
                 <td >&#8369; {{vm.content.vm_main.fair_market_value | number:2 }}</td>
                 <td >&#8369; {{vm.content.vm_main.fair_market_value_rate | number:2 }}</td>

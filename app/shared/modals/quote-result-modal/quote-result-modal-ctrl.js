@@ -28,15 +28,20 @@
             }    
 
             vm.content.btn_name = 'Sending Quote';
-
+           
             var fractionSize = 2;
             var objectPost = {
-                email: vm.content.vm_main.email,
+                email: vm.content.vm_main.email_extract,
                 name: vm.content.vm_main.name,
                 reference_number: vm.content.vm_main.reference_number,
+                make: vm.content.vm_main.make,
+                year: vm.content.vm_main.year,
+                model: vm.content.vm_main.model,
                 car_insurance_for: vm.content.vm_main.year + ' ' + vm.content.vm_main.make + ' ' +
-                            vm.content.vm_main.model + ' ' + vm.content.vm_main.type,
+                            vm.content.vm_main.model,
                 insurance_company: vm.content.vm_main.insurance_company,
+                memo: vm.content.vm_main.memo_extract,
+                acts_of_god_included: vm.content.vm_main.acts_of_god_included,
                 fair_market_value: $filter('number')(vm.content.vm_main.fair_market_value, fractionSize),
                 fair_market_value_rate: $filter('number')(vm.content.vm_main.fair_market_value_rate, fractionSize),
                 bodily_injury_property_damage : $filter('number')(vm.content.vm_main.bodily_injury_property_damage, fractionSize),

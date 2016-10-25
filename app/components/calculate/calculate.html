@@ -39,20 +39,7 @@
                  <span class="error ft11" ng-show="formQuote.model.$error.required && formQuote.model.$touched">
                         (Required!)</span>
             </div>
-
-             <div class="col-md-6" style="margin-bottom:20px;">
-                <input  class="form-control" 
-                        type="text"
-                        name="type"
-                        ng-model="vm.type" 
-                        required="">
-                <label >Type</label>
-                <span ng-show="formQuote.year.$error.required && formQuote.year.$touched">&nbsp;</span>
-                <span class="error ft11" ng-show="formQuote.type.$error.required && formQuote.type.$touched">
-                        (Required!)</span>
-                
-            </div>
-
+      
             <div class="col-md-6" style="margin-bottom:20px;">
                 <input  class="form-control" 
                         type="number"
@@ -68,6 +55,21 @@
                 <span class="error ft11" ng-show="formQuote.year.$touched && formQuote.year.$invalid">
                         (Not valid year!)</span>
             </div>
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                <!--<input  class="form-control" 
+                        type="text"
+                        name="type"
+                        ng-model="vm.type" 
+                        required="">
+                <label >Type</label>
+                <span ng-show="formQuote.year.$error.required && formQuote.year.$touched">&nbsp;</span>
+                <span class="error ft11" ng-show="formQuote.type.$error.required && formQuote.type.$touched">
+                        (Required!)</span> -->
+                
+            </div>
+             <div style="clear:both"></div>
+            
 
              <div class="col-md-6" style="margin-bottom:20px;">
                 <input  class="form-control" 
@@ -112,7 +114,7 @@
                         name="act_of_god_included"
                         ng-model="vm.acts_of_god_included" 
                         >
-                 <label> Acts of Nature included <label> 
+                 <label> ACTS OF GOD included <label> 
 
                 <!--<input  class="form-control" 
                         type="text"
@@ -196,28 +198,38 @@
                  <span class="error ft11" ng-show="formQuote.name.$touched && formQuote.name.$invalid">
                         (Not valid value!)</span>
             </div>
+             <div style="clear:both"></div>
+           
+            <div class="col-md-12" style="margin-bottom:20px;">
 
-
-            <div class="col-md-6" style="margin-bottom:20px;">
+                <div class="input-group">
+                     
+                    <tags-input name="email" placeholder="Add an email" min-tags=1 ng-model="vm.email" allowed-tags-pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" ></tags-input>
+                </div>
+                <!--
                 <input name="email"  class="form-control" 
                         type="email"
                         ng-model="vm.email" 
                         
                         ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" 
-                        required="">
+                        required=""> -->
                 <label class="md-label">Email Address</label>
-                <span ng-show="formQuote.name.$error.required && formQuote.name.$touched">&nbsp;</span>
-                <span class="error ft11" ng-show="formQuote.email.$error.required && formQuote.email.$touched">
+                <!--<span ng-show="formQuote.name.$error.required && formQuote.name.$touched">&nbsp;</span> -->
+                <span class="error ft11" ng-show="formQuote.email.$error.minTags && formQuote.email.$touched">
                         (Required!)</span>
                 <span class="error ft11" ng-show="formQuote.email.$touched && formQuote.email.$invalid">
                         (Not valid value!)</span>
+
+
+
             </div>
+            <div style="clear:both"></div>
 
              <div class="col-md-6" style="margin-bottom:20px;">
                 <input name="cellphone"  class="form-control" 
                         type="number"
                         ng-model="vm.cellphone" 
-                        required=""
+                        
                         ng-minlength="6"
                         >
                 <label class="md-label">Cellphone</label>
@@ -228,11 +240,11 @@
 
             </div>
 
-               <div class="col-md-6" style="margin-bottom:20px;">
+            <div class="col-md-6" style="margin-bottom:20px;">
                 <input name="landline" class="form-control" 
                         type="number"
                         ng-model="vm.landline" 
-                          required=""
+                           
                           ng-minlength="6"
                          >
                 <label class="md-label">Landline</label>
@@ -241,8 +253,40 @@
                         (Not valid value!)</span>
             </div> 
 
-        </div>
 
+             <!--<div class="col-md-12" style="margin-bottom:20px;">
+                <textarea name="memo" class="form-control" 
+                        type="text"
+                        ng-model="vm.memo" 
+                          
+                          ng-minlength="6"
+                         > </textarea>
+                <label class="md-label">Memo</label>
+
+                 
+            </div> 
+            <div style="clear:both"></div>-->
+
+            <div class="col-md-12" style="margin-bottom:20px;">
+            <tags-input allow-leftover-text="false" add-from-autocomplete-only="true" name="memo" ng-model="vm.memo" display-property="name" placeholder="Add a memo" replace-spaces-with-dashes="false">
+              <auto-complete source="vm.loadMemo($query)"
+                             min-length="0"
+                             debounceDelay="10"
+                             load-on-focus="true"
+                             load-on-empty="true"
+                             max-results-to-show="32"
+
+                              ></auto-complete>
+            </tags-input>
+            <label class="md-label">Memo</label>
+
+             </div> 
+            <div style="clear:both"></div>
+
+         
+
+        </div>
+       
              <button type="submit" ng-disabled="formQuote.$invalid" class="btn btn-primary btn-large" ng-click="vm.submit()">Generate Quote</button>
     </form>
 

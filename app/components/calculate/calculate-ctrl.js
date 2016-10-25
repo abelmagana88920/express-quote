@@ -5,24 +5,48 @@
         .module('app')
         .controller('CalculateCtrl', CalculateCtrl);
 
-    CalculateCtrl.$inject = ['$scope', '$state','ModalService'];
+    CalculateCtrl.$inject = ['$scope', '$state','ModalService','_','$http'];
 
-    function CalculateCtrl ($scope, $state, ModalService) {
+    function CalculateCtrl ($scope, $state, ModalService,_,$http) {
 
         var vm         = this;
+        vm.loadMemo = loadMemo;
 
         vm.submit = submit;
         vm.display_result=false;
 
+        function loadMemo($query) {
+            return $http.get('assets/jsonfile/memo.json', { cache: true}).then(function(response) {
+              var countries = response.data;
+              return countries.filter(function(country) {
+                return country.name.toLowerCase().indexOf($query.toLowerCase()) != -1;
+              });
+            });
+        }
+         /*$scope.loadMemo = function($query) {
+            return $http.get('assets/jsonfile/memo.json', { cache: true}).then(function(response) {
+              var countries = response.data;
+              return countries.filter(function(country) {
+                return country.name.toLowerCase().indexOf($query.toLowerCase()) != -1;
+              });
+            });
+          }; */
+
     
         function submit() {
+
+             if (typeof vm.acts_of_god_included == "undefined") vm.acts_of_god_included = false; //set false
+             
+             vm.email_extract = _.pluck(vm.email,'text').join(', ');
+             vm.memo_extract = _.pluck(vm.memo,'name').join(', ');
+
              vm.ref_num = Math.ceil(new Date().getTime()/270);
              vm.ref_name = 'EQ';
-             vm.acts_of_god_rate = 0.25/100;
+             //vm.acts_of_god_rate = 0.25/100;
 
             vm.fair_market_value_rate = vm.fair_market_value * vm.rate/100;
 
-            if (vm.acts_of_god_included)  vm.fair_market_value_rate  =  vm.fair_market_value_rate + ( vm.fair_market_value * vm.acts_of_god_rate);
+            //if (vm.acts_of_god_included)  vm.fair_market_value_rate  =  vm.fair_market_value_rate + ( vm.fair_market_value * vm.acts_of_god_rate);
 
             vm.reference_number = vm.ref_num + '-' + vm.ref_name; 
 

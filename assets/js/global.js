@@ -5,7 +5,8 @@
 
 var GLOBAL = {
     //host: 'https://jsonplaceholder.typicode.com',
-    testHost: 'http://35.161.109.212:8000/', 
+    proHost: 'http://35.161.109.212:8000/', 
+    devHost: 'http://localhost:8000/', 
     host: location.protocol + '//' + location.host + '/beautyadmin/assets/jsonfile',
     socket: 'http:socket',
     url : function (route) {
