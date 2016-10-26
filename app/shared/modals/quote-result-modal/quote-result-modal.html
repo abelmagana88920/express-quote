@@ -16,7 +16,7 @@
             <span class="text-uppercase"> Send To: </span> 
         </div>
          <div class="ft11 col-md-9 col-xs-9" >&nbsp;
-            {{vm.content.vm_main.email_extract}}
+            {{vm.content.vm_main.email_extract.join(', ')}}
         </div>
 
         <div class="ft11 col-md-3 col-xs-3">
@@ -90,7 +90,7 @@
             <tr>
                 <th >Personal Accident</th>
                 <td>&#8369; {{vm.content.vm_main.personal_accident_amount | number:2}}</td>
-                <td>&#8369; {{vm.content.vm_main.personal_accident_premium | number:2}}</td>
+                <td>{{vm.content.vm_main.personal_accident_premium_free}}</td>
 
             </tr>
 

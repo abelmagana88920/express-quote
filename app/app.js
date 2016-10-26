@@ -11,7 +11,8 @@
             'sticky',
             //'tableSort',
             'angularUtils.directives.dirPagination',
-            'ngTagsInput'
+            'ngTagsInput',
+             
             //'hl.sticky'
         ])
         .config(router);

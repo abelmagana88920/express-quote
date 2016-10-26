@@ -48,12 +48,15 @@
                 bodily_injury_premium: $filter('number')(vm.content.vm_main.bodily_injury_premium, fractionSize),
                 property_damage_premium: $filter('number')(vm.content.vm_main.property_damage_premium, fractionSize),
                 personal_accident_amount: $filter('number')(vm.content.vm_main.personal_accident_amount, fractionSize),
-                personal_accident_premium: $filter('number')(vm.content.vm_main.personal_accident_premium, fractionSize),
+                personal_accident_premium_free: vm.content.vm_main.personal_accident_premium_free,
                 annual_premiums: $filter('number')(vm.content.vm_main.annual_premiums, fractionSize),
                 docstamps: $filter('number')(vm.content.vm_main.docstamps, fractionSize),
                 evat: $filter('number')(vm.content.vm_main.evat, fractionSize),
                 lgt: $filter('number')(vm.content.vm_main.lgt, fractionSize),
-                total_premiums: $filter('number')(vm.content.vm_main.total_premiums, fractionSize)
+                total_premiums: $filter('number')(vm.content.vm_main.total_premiums, fractionSize),
+                user: vm.content.vm_main.user,
+                template: vm.content.vm_main.template,
+                expiration_date: vm.content.vm_main.expiration_date_format
             };
 
             
@@ -61,7 +64,11 @@
             DataService.post('send/email', objectPost)
                         .then(function (data, status, headers, config) {
                             vm.content.btn_name = 'Close';
-                            console.log(data);
+                            if (data.success) {
+                                alert('Your quote has been sent!');
+                            } else {
+                                alert('Error in sending quote');
+                            }
                          // handle success things
                         });
 

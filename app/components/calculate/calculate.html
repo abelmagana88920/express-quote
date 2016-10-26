@@ -268,7 +268,7 @@
             <div style="clear:both"></div>-->
 
             <div class="col-md-12" style="margin-bottom:20px;">
-            <tags-input allow-leftover-text="false" add-from-autocomplete-only="true" name="memo" ng-model="vm.memo" display-property="name" placeholder="Add a memo" replace-spaces-with-dashes="false">
+            <tags-input allow-leftover-text="false"  name="memo" ng-model="vm.memo" display-property="name" placeholder="Add a memo" replace-spaces-with-dashes="false">
               <auto-complete source="vm.loadMemo($query)"
                              min-length="0"
                              debounceDelay="10"
@@ -283,11 +283,55 @@
              </div> 
             <div style="clear:both"></div>
 
+            <div class="col-md-6" style="margin-bottom:20px;">
+                    <select  name="user" required="required" class="form-control"  ng-model="vm.user">
+                        <option ng-selected="true" value=""></option>
+                        <option value="insurance.bestlink@gmail.com">Insurance Best Link</option>
+                        <option value="info@ichoose.ph">IChoose</option>
+                    </select>
+                    <label >User</label>
+
+                    <span ng-show="formQuote.template.$error.required && formQuote.template.$touched">&nbsp;</span>
+                    <span class="error ft11" ng-show="formQuote.user.$error.required && formQuote.user.$touched">(Required!)</span>
+            </div> 
+           
+
+             <div class="col-md-6" style="margin-bottom:20px;">
+                    <select  name="template" required="required" class="form-control"  ng-model="vm.template">
+                        <option ng-selected="true" value=""></option>
+                        <option value="renewal">Renewal</option>
+                        <option value="prospective">Prospective</option>
+                    </select>
+                    <label >Template</label>
+
+                    <span ng-show="formQuote.user.$error.required && formQuote.user.$touched">&nbsp;</span>
+                    <span class="error ft11" ng-show="formQuote.template.$error.required && formQuote.template.$touched">(Required!)</span>
+            </div> 
+            <div style="clear:both"></div>
+
+            <div ng-show="vm.template=='renewal'" class="col-md-6" style="margin-bottom:20px;">
+                     <input type="date" class="form-control"
+                       ng-model="vm.expiration_date"
+                       name="expiration_date"
+                        min="2000-01-01" max="2113-12-31"
+                    >
+                    <label >Expiration date</label>
+                   
+
+                     <span class="error ft11" ng-show="formQuote.expiration_date.$touched && formQuote.expiration_date.$invalid">
+                        (Not valid value!)</span>
+                    <span class="error ft11" ng-show="formQuote.expiration_date.$touched && formQuote.expiration_date.$viewValue == ''">
+                        (Required value!)</span>
+
+                        
+            </div> 
+             <div style="clear:both"></div>
+
          
 
         </div>
        
-             <button type="submit" ng-disabled="formQuote.$invalid" class="btn btn-primary btn-large" ng-click="vm.submit()">Generate Quote</button>
+             <button type="submit" ng-disabled="formQuote.$invalid || (vm.template=='renewal' &&  formQuote.expiration_date.$viewValue == '') " class="btn btn-primary btn-large" ng-click="vm.submit()">Generate Quote</button>
     </form>
 
 

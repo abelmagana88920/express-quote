@@ -5,9 +5,9 @@
         .module('app')
         .controller('CalculateCtrl', CalculateCtrl);
 
-    CalculateCtrl.$inject = ['$scope', '$state','ModalService','_','$http'];
+    CalculateCtrl.$inject = ['$scope', '$state','ModalService','_','$http','$filter'];
 
-    function CalculateCtrl ($scope, $state, ModalService,_,$http) {
+    function CalculateCtrl ($scope, $state, ModalService,_,$http,$filter) {
 
         var vm         = this;
         vm.loadMemo = loadMemo;
@@ -37,8 +37,11 @@
 
              if (typeof vm.acts_of_god_included == "undefined") vm.acts_of_god_included = false; //set false
              
-             vm.email_extract = _.pluck(vm.email,'text').join(', ');
+             vm.email_extract = _.pluck(vm.email,'text');
              vm.memo_extract = _.pluck(vm.memo,'name').join(', ');
+
+             vm.expiration_date_format = $filter('date')(vm.expiration_date, 'MMMM dd, yyyy');
+
 
              vm.ref_num = Math.ceil(new Date().getTime()/270);
              vm.ref_name = 'EQ';
@@ -157,7 +160,7 @@
 
 
             vm.personal_accident_amount = 250000;
-            vm.personal_accident_premium = 0;
+            vm.personal_accident_premium_free = 'FREE';
 
 
             vm.annual_premiums = vm.fair_market_value_rate +
