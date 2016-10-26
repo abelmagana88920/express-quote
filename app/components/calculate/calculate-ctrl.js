@@ -37,7 +37,7 @@
 
              if (typeof vm.acts_of_god_included == "undefined") vm.acts_of_god_included = false; //set false
              
-             vm.email_extract = _.pluck(vm.email,'text');
+             vm.email_extract = _.pluck(vm.email,'text').join(', ');
              vm.memo_extract = _.pluck(vm.memo,'name').join(', ');
 
              vm.expiration_date_format = $filter('date')(vm.expiration_date, 'MMMM dd, yyyy');

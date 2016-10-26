@@ -20,7 +20,13 @@
 
         vm.content.btn_name = 'Email Quote';
 
+        vm.date_now= $filter('date')(Date.now(),'HH:mm:ss dd/MM/yyyy');
+       
+
+
         function approve () {
+
+           
 
             if (vm.content.btn_name == 'Close') {
                 $uibModalInstance.close();
@@ -56,7 +62,8 @@
                 total_premiums: $filter('number')(vm.content.vm_main.total_premiums, fractionSize),
                 user: vm.content.vm_main.user,
                 template: vm.content.vm_main.template,
-                expiration_date: vm.content.vm_main.expiration_date_format
+                expiration_date: vm.content.vm_main.expiration_date_format,
+                date_now: vm.date_now,
             };
 
             
