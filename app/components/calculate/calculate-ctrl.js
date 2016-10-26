@@ -12,6 +12,8 @@
         var vm         = this;
         vm.loadMemo = loadMemo;
 
+        vm.date_now = $filter('date')(Date.now(), 'yyyy-MM-dd');
+
         vm.submit = submit;
         vm.display_result=false;
 

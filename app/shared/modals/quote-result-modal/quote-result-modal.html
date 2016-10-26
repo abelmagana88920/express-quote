@@ -53,6 +53,29 @@
         <div class="ft11 col-md-9 col-xs-9">&nbsp;
                {{vm.content.vm_main.memo_extract}}
         </div>
+
+        <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase">User:  </span>
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+               {{vm.content.vm_main.user}}
+        </div>
+
+         <div class="ft11 col-md-3 col-xs-3">
+             <span class="text-uppercase">Template:  </span>
+        </div>
+        <div class="ft11 col-md-9 col-xs-9">&nbsp;
+               {{vm.content.vm_main.template}}
+        </div>
+
+        <div ng-show="vm.content.vm_main.template=='renewal'">
+            <div class="ft11 col-md-3 col-xs-3">
+                 <span class="text-uppercase">Expiration Date:  </span>
+            </div>
+            <div class="ft11 col-md-9 col-xs-9">&nbsp;
+                   {{vm.content.vm_main.expiration_date_format}}
+            </div>
+        </div>
          
     </div>
 
