@@ -79,6 +79,20 @@
                 controllerAs    : 'vm'
             })
 
+            .state('app.calculate', {
+                url             : 'calculate',  
+                templateUrl  : 'app/components/calculate/calculate.html',
+                controller   : 'CalculateCtrl',
+                controllerAs : 'vm'
+            })
+
+             .state('app.quotes', {
+                url             : 'quotes',  
+                templateUrl  : 'app/components/quotes/quotes.html',
+                controller   : 'QuoteCtrl',
+                controllerAs : 'vm'
+            })
+
             .state('login', {
                 url : '/login',
                 views : {
@@ -90,7 +104,7 @@
                 }
             })
 
-             .state('calculate', {
+             /*.state('calculate', {
                 url : '/calculate',
                 views : {
                     'content' : { 
@@ -99,7 +113,7 @@
                         controllerAs : 'vm'
                     }
                 }
-            })
+            }) */
 
     }
 

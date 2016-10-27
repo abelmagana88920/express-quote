@@ -1,0 +1,175 @@
+<div class="modal-header bg-primary shufra-blue-primary">
+    <span class="text-uppercase lead">
+        {{ vm.content.header }}
+       <button  type="button" 
+                class="close"
+                ng-click="vm.cancel()" 
+                data-dismiss="modal" 
+                aria-hidden="true">&times;</button>
+    </span>
+
+</div>
+
+<div class="modal-header" style="border-bottom:thin solid #000;">
+    <div class="row">
+
+         <div class="col-md-6">
+                <div class="ft11 col-md-12 col-xs-3" >
+                    <h5>Car Insurance Quotes<h5>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ft11 col-md-6 col-xs-3" >
+                     Reference Number
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.reference_number}}
+                </div>
+                 <div style="clear:both"></div>
+
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Bodily Injury / Property Damage
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                      &#8369; {{vm.data.bodily_injury_property_damage | number:2}}
+                </div>
+                 <div style="clear:both"></div>
+
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Fair Market Value
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                      &#8369; {{vm.data.fair_market_value | number:2}}
+                </div>
+                 <div style="clear:both"></div>
+        </div>
+                 
+        <div class="col-md-6">
+
+                 <div class="ft11 col-md-12 col-xs-3" >
+                    <h5>Emailed Quotes<h5>
+                </div>
+                <div style="clear:both"></div>
+
+                <div class="ft11 col-md-6 col-xs-3" >
+                     Insurance Company
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.insurance_company}}
+                </div>
+                <div style="clear:both"></div>
+
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Bodily Injury / Property Damage
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     &#8369; {{vm.data.bodily_injury_property_damage | number:2}}
+                </div>
+                 <div style="clear:both"></div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Fair Market Value
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     &#8369; {{vm.data.fair_market_value | number:2}}
+                </div>
+                 <div style="clear:both"></div>
+                  <div class="ft11 col-md-6 col-xs-3" >
+                     Annual Premium
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                      &#8369; {{vm.data.annual_premiums| number:2}}
+                </div>
+                 <div style="clear:both"></div>
+
+                  <div style="clear:both"></div>
+                  <div class="ft11 col-md-6 col-xs-3" >
+                     Total Premium
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                      &#8369; {{vm.data.total_premiums| number:2}}
+                </div>
+                 <div style="clear:both"></div>
+        </div>
+
+        <div class="col-md-6">
+                <div class="ft11 col-md-12 col-xs-3" >
+                    <h5>Car Owner Info<h5>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ft11 col-md-6 col-xs-3" >
+                     Name
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.name}}
+                </div>
+                 <div style="clear:both"></div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Email Address
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.email}}
+                </div>
+                 <div style="clear:both"></div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Cellphone
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.cellphone}}
+                </div>
+                 <div style="clear:both"></div>
+                  <div class="ft11 col-md-6 col-xs-3" >
+                     Landline
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.landline}}
+                </div>
+                 <div style="clear:both"></div>
+        </div>
+        <div class="col-md-6">
+
+                <div class="ft11 col-md-12 col-xs-3" >
+                    <h5>Car Specifications<h5>
+                </div>
+                <div style="clear:both"></div>
+                <div class="ft11 col-md-6 col-xs-3" >
+                     Make
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.make}}
+                </div>
+                 <div style="clear:both"></div>
+                <div class="ft11 col-md-6 col-xs-3" >
+                     Model
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.model}}
+                </div>
+                 <div style="clear:both"></div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     Year
+                </div>
+                 <div class="ft11 col-md-6 col-xs-3" >
+                     {{vm.data.year}}
+                </div>
+                 <div style="clear:both"></div>
+        </div>
+         
+      
+    </div>
+
+
+    <div   class="top-margin-sm pull-right" align="center">
+        <button type="button" 
+                class="btn btn-sm btn-cancel" 
+                ng-click="vm.cancel()" > Close </button>
+        
+    </div>
+
+</div>
+ 
+
+
+ 
+
+ 
+
+

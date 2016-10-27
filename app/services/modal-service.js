@@ -14,7 +14,8 @@
             confirm_modal: confirm_modal,
             email_modal:   email_modal,
             message_modal: message_modal,
-            quote_result_modal: quote_result_modal
+            quote_result_modal: quote_result_modal,
+            view_quote_modal: view_quote_modal
         };
 
         return service;
@@ -130,6 +131,21 @@
                 'controller'    : 'QuoteResultModalCtrl',
                 'controllerAs'  : 'vm',
                 'size'          : 'md',
+                'backdrop'      : false,
+                'resolve'       : {
+                    message     : function () {
+                        return msg;
+                    }
+                }
+            });
+        }
+
+         function view_quote_modal (msg) {
+            var modalInstance = $uibModal.open({
+                'templateUrl'   : 'app/shared/modals/view-quote-modal/view-quote-modal.html',
+                'controller'    : 'ViewQuoteModalCtrl',
+                'controllerAs'  : 'vm',
+                'size'          : 'lg',
                 'backdrop'      : false,
                 'resolve'       : {
                     message     : function () {

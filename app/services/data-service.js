@@ -9,8 +9,8 @@
 
         function DataService ($http, $location) {
 
-                //var serviceBase = GLOBAL.devHost;
-                var serviceBase = GLOBAL.proHost;
+                var serviceBase = GLOBAL.devHost;
+                //var serviceBase = GLOBAL.proHost;
                 //var serviceBase = 'api/';
 
                 var obj = {};
